@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+</head>
+<body>
+
+<div id="main-content">
+
+    <h1>To-Do List</h1>
+
+    <div id="create-task">
+        <h2>Create task</h2>
+
+        <form id="create-task-form">
+            <label for="task-description">Description:</label>
+            <input type="text" id="task-description" placeholder="Enter task description">
+
+            <label for="task-deadline">Deadline</label>
+            <input type="date" id="task-deadline">
+
+            <input type="submit" value="Save">
+            <div id="existing-tasks">
+                <table id="tasks">
+                    <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Deadline</th>
+                        <th>Done</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Lear HTML</td>
+                        <td>2020-08-10</td>
+                        <td><input type="checkbox" class="mark-done"></td>
+                        <td><a href="#" class="delete-link">X</a> </td>
+                    </tr>
+
+                    <tr>
+                        <td>Lear CSS</td>
+                        <td>2020-08-10</td>
+                        <td><input type="checkbox" class="mark-done"></td>
+                        <td><a href="#" class="delete-link">X</a> </td>
+                    </tr>
+
+                    <tr>
+                        <td>Lear Javascript</td>
+                        <td>2020-08-10</td>
+                        <td><input type="checkbox" class="mark-done"></td>
+                        <td><a href="#" class="delete-link">X</a> </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </form>
+    </div>
+    >
+</div>
+</body>
+</html>
