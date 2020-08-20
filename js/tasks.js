@@ -34,6 +34,28 @@ window.ToDoList = {
 
     },
 
+    updateTask: function (id, done){
+        let body ={
+            "done": done
+        };
+        $.ajax({
+            url: ToDoList.API_URL + '?id=' + id,
+            method: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify(body)
+        }).done(function () {
+            ToDoList.getTask();
+        })
+    },
+
+    deleteTask: function(id) {
+      $.ajax({
+          url: ToDoList.API_URL + '?id=' + id,
+          method: 'DELETE'
+      }) .done(function (){
+      }) ;
+    },
+
     getTaskRow: function (task){
         //spread syntax
        let formattedDeadline = new Date(...task.deadline).toLocaleDateString("ro");
@@ -68,7 +90,24 @@ window.ToDoList = {
 
             ToDoList.createTask();
         });
+
+        $('#tasks').delegate('.mark-done','change',function (event) {
+            event.preventDefault();
+
+            const id = $(this).data('id');
+            const checkboxChecked = $(this).is(':checked') ;
+
+            ToDoList.updateTask(id, checkboxChecked);
+        });
+
+        $('#tasks').delegate('.delete-link','click',  function(event) {
+            event.preventDefault();
+
+            const id = $(this).data('id')
+            ToDoList.deleteTask(id);
+        });
     }
+
 };
 
 ToDoList.getTask();
